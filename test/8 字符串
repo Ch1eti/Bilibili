@@ -1,0 +1,35 @@
+// 字符串
+
+// 由双引号引起来的一串字符，
+// 字符串结束的结束标志是一个\0的转义字符
+// 计算字符串长度时\0是标志，不算做字符串内容
+
+// char 字符类型
+// 'a'
+// char ch = 'w'
+// 字符串 “abcdef”
+// C中没有字符串类型
+
+
+
+#include <stdio.h>
+#include <cstring>
+
+int main()
+{
+    char arr1[] = "abcdef";  // arr1[]自动根据后面的内容生成空间 "abcdef"会有7个字符: a b c d e f \0
+    char arr2[] = {'a','b','c','d','e','f'}; // 6个字符: a b c d e f
+    char arr3[] = {'a','b','c','d','e','f','\0'}; // 7个字符：a b c d e f \0
+
+    int len = strlen("abc"); // strlen是求字符串长度的函数  string lenth   头文件string.h
+    printf("%i\n", len); // 3
+
+    printf("%i\n", strlen(arr1)); // 6
+    printf("%i\n", strlen(arr2)); // 12
+    printf("%i\n", strlen(arr3)); // 6
+
+    printf("%s\n", arr1); // abcdef  见到\0就会停止打印
+    printf("%s\n", arr2); // abcdefabcdef  只有字母，直到在某个位置遇到\0才会停止
+    printf("%s\n", arr3); // abcdef
+    return 0;
+}
