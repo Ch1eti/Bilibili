@@ -1,0 +1,50 @@
+// 选择语句和循环语句
+//
+// 实现选择  if else   switch...
+// 实现循环  while    for    do.. while
+
+
+#include <stdio.h>
+
+/*
+int main()
+{
+    int input = 0;     // =表赋值
+    printf("go to university\n");
+    printf("Do you want to study hardly(1/0)?");
+    scanf("%i", &input);
+    if (input == 1)     // ==表判断
+    {
+        printf("good offer\n");
+    }
+    else
+    {
+        printf("go home\n");
+    }
+    return 0;
+}
+ */
+
+
+
+// 20000行有效代码的积累
+int main()
+{
+    int line = 0;
+    printf("go to university\n");
+
+    while(line < 20000)
+    {
+        printf("write code: %i\n", line);
+        line++;
+    }
+    if(line >= 20000)
+    {
+        printf("good offer\n");
+    }
+    else
+    {
+        printf("keep going\n");
+    }
+    return 0;
+}
