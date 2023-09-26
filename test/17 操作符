@@ -1,0 +1,148 @@
+/ 操作符
+// 算数操作符  +  -  *  /除号  %取模
+// 移位操作符  >>  <<        涉及二进制计算
+// 位操作符 &  ^  |
+// 赋值操作符 =  +=  -=  *=  /=  &=  ^=  |=  >>=  <<=
+// 单目操作符(只有一个操作数) !  -  +  &  sizeoff  ~  --  ++  *  (类型)强制类型转换
+// 关系操作符 >  >=  <  <=  !=测试不等  ==测试相等
+// 逻辑操作符 &&  ||
+// 条件操作符(三目操作符) exp1 ? exp2 : exp3   1真2真3假 1假2假3真
+// 逗号表达式 exp1, exp2, exp3, ...expN
+// 下标引用、函数调用和结构成员 []  ()  .  ->
+
+
+#include <stdio.h>
+
+/*
+int main()
+{
+    int a1 = 7/2;  // /号的两端是整数，执行整数除法
+    float a2 = 7.0/2; // /号两端有一个浮点数就执行浮点数除法
+    int b = 7%2;  // 取模，两端只能是证书
+    printf("%i\n", a1); // 3
+    printf("%.1f\n", a2); // 小数点后一位
+    printf("%.2f\n", a2); //小数点后两位
+    printf("%i\n", b); // 1
+    return 0;
+}
+*/
+
+
+/*
+int main()
+{
+    int a = 0; // 初始化
+    a = 20; //赋值
+
+    a = a + 3; // a = 23
+    a += 3;
+
+    a = a - 3; // a= 20
+    a -= 3;
+
+    return 0;
+}
+*/
+
+
+//int main()
+//{
+/*  int flag = 2;
+    if(!flag)  // !假变真，真变假
+    {
+        printf("\n");
+    }*/
+
+
+/*  int a = -10;
+    int b = +a;
+    printf("%i\n", b);*/
+
+    // sizeof是单目操作符
+    //int a = 10;
+    //printf("%i\n", sizeof(a)); // 4
+    //printf("%i\n", sizeof(int)); // 4
+    //printf("%i\n", sizeof a); // 4
+    //printf("%i\n", sizeof int); // 报错
+
+
+/*  int arr[10] = {0};
+    printf("%i\n", sizeof(arr)); // 40 - 计算的是整个数组的大小，单位是字节
+    printf("%i\n", sizeof(arr[0])); //4 - 数组一个元素的大小
+    printf("%i\n", sizeof(arr) / sizeof(arr[0])); // 10 - 数组的元素个数*/
+
+
+/*    int a = 10;
+    //int b = a++;  // 后置++，先使用，后++   b = a; a=a+1
+    //int b = ++a;  // 前置++，先++，后使用   a=a+1; b = a
+    //int b = a--;  // 后置--  b = a; a=a-1
+    //int b = --a;  // 前置--  a=a-1; b = a
+    printf("%i\n", b);
+    printf("%i\n", a);*/
+
+
+/*  int a = (int)3.14; // 字面浮点数，默认为double
+    printf("%i\n", a);*/
+
+
+/*  int a =10;
+    if (a == 3)
+    {
+        printf("hehe\n");
+    }*/
+
+
+//int main()
+//{
+/*     && 逻辑与 - 并且   一假则假
+    // || 逻辑或 - 或者   一真则真
+
+    int a = 0;
+    int b = 10;
+    if (a || b)
+    {
+        printf("hehe\n");
+    }
+
+    int a = 10;
+    int b = 20;
+    int r = (a > b ? a : b); // 1真2真3假 1假2假3真
+    printf("%i\n", r);
+    return 0;*/
+//}
+
+
+// 逗号表达式从左向右依次计算，整个表达式结果是最后一个表达式的结果
+/*int main()
+{
+    int a = 10;
+    int b = 20;
+    int c = 0;
+    //       c=8    a=28   5
+    int d = (c=a-2, a=b+c, c-3);
+    printf("%i\n", d); // 5
+    return 0;
+}*/
+
+
+
+/*int main()
+{
+    int arr[10] = {1,2,3,4,5,6,7,8,9,10};
+    int n = 3;
+    arr[n] = 20; // []就是下标引用操作符  arr和3就是[]的操作数
+    return 0;
+}*/
+
+
+
+int Add(int x, int y)
+{
+    return x+y;
+}
+int main()
+{
+    int sum = Add(2, 3); // ()就是函数调用操作符，Add，2，3都是()的操作数
+
+    return 0;
+}
