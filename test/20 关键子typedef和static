@@ -1,0 +1,97 @@
+// 关键字typedef和static
+
+// typedef 类型重命名 只能针对类型
+//
+// static 用来修饰变量和函数
+// 1. 修饰局部变量    改变变量的存储位置
+// 2. 修饰全局变量
+// 3. 修饰函数
+
+
+
+#include <stdio.h>
+
+/*
+typedef unsigned int uint;
+
+typedef struct Node
+{
+    int data;
+    struct Node* next;
+}Node;
+
+int main()
+{
+    unsigned int num = 0;
+    uint num2 = 1;
+    struct Node n;
+    Node n2;
+
+    return 0;
+}
+*/
+
+
+// static修饰局部变量
+/*
+void test()  // void 不需要任何返回
+{
+    static int a = 1;
+    // static 修饰局部变量时，局部变量出了作用域不销毁。
+    // 本质上是改变了局部变量的存储位置，影响了变量的生命周期，生命周期变长，和程序的生命周期一样
+    a++;
+    printf("%d ", a);
+}
+
+int main() {
+    int i = 0;
+    while (i < 10)  // 循环10次
+    {
+        test();
+        i++;
+    }
+
+    return 0;
+}
+*/
+
+
+// static修饰全局变量
+// static修饰全局变量时，全局变量的外部链接属性变成了内部链接属性，其他源文件不能再使用这个全局变量了
+// 使用时感觉作用域变小了，其实是属性变了
+
+
+// static修饰函数
+// 函数具有外部链接属性
+// static修饰函数时，同全部变量
+/*
+int Add( int x, int y )
+{
+    return x+y;
+}
+
+int main()
+{
+    int a = 10;
+    int b = 20;
+    int z = Add(a,b);
+    printf("%d\n", z);
+    return 0;
+}
+*/
+
+
+
+// register -- 寄存器
+
+int main()
+{
+    // 寄存器变量
+    register int num = 3; //建议：3存放在寄存器中
+    return 0;
+}
+
+//      寄存器  高速缓存  内存  硬盘
+// 速度    快----------->慢
+// 空间    小----------->大
+// 造价    高----------->低
