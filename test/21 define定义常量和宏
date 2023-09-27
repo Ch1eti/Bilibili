@@ -1,0 +1,39 @@
+// define定义常量和宏
+
+// define定义标识符常量
+
+#include <stdio.h>
+
+/*
+#define NUM 100
+
+int main()
+{
+    printf("%d\n", NUM);
+    int n = NUM;
+    printf("%d\n", n);
+    int arr[NUM] = { 0 };
+
+    return 0;
+}
+*/
+
+
+// define定义宏
+#define ADD(x,y) x+y   // ADD是宏名  x，y是参数，无类型  x+y是宏体
+
+/*
+int ADD(int x, int y)   // 定义ADD函数
+{
+    return x+y;
+}
+*/
+
+int main()
+{
+    int a = 10;
+    int b = 20;
+    int c = ADD(a,b);
+    printf("%d\n", c);
+    return 0;
+}
