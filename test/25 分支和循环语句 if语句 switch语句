@@ -1,0 +1,202 @@
+// 分支和循环语句 if语句 switch语句
+
+// 语句分为： 1.表达式语句  2.函数调用语句  3.控制语句  4.复合语句  5.空语句
+
+// 控制语句：
+// 1.条件判断语句（也叫分支语句）： if语句、switch语句
+// 2.循环执行语句： do while语句、while语句、for语句
+// 3.转向语句： break语句、goto语句、continue语句、return语句
+
+
+
+/*if(表达式1)
+    语句1;
+else if(表达式2)
+    语句2;
+else
+    语句3;
+*/
+
+#include <stdio.h>
+
+//int main()
+//{
+/*
+    int age = 20;
+    if(age < 18)
+    {
+        printf("not an adult\n");
+        printf("cannot drink\n");   // if后边要跟多条语句就需要{}
+    }
+    else
+        printf("an adult\n");
+
+
+    int age = 10;
+    if(age < 18)
+        printf("teenager\n");
+    else if(age >= 18 && age < 28)
+        printf("adult\n");
+    else if (age >= 28 && age < 40)
+        printf("a\n");
+    else if (age >= 40 && age < 60)
+        printf("b\n");
+    else if (age >= 60 && age <=100)
+        printf("c\n");
+    else
+        printf("d\n");
+    return 0;
+}
+*/
+
+//
+/*int main()
+{
+    int a = 0;
+    int b = 2;
+    if(a == 1)
+    {
+        if (b == 2)
+            printf("hehe\n");
+        else  // else是和离他最近的if匹配，if else合起来是一条语句
+            printf("haha\n");
+    }
+    return 0;
+}*/
+
+// 1.变量的命名（有意义，规范）
+//
+//
+
+/*int main()
+{
+    // char firstname[20] = {0};
+    // char FirstName[20] = { 0 };
+    // char first_name[20] = { 0 };
+    int a = 10;
+    int a=10;
+    return 0;
+}*/
+
+/*int test()
+{
+    int a = 4;
+    if(a == 3)
+        return 1;
+    else
+        return 0;
+}
+int main()
+{
+    int r = test();
+    printf("%d\n",r);
+    return 0;
+}*/
+
+/*int main()
+{
+    int num = 3;
+    if(5 == num)
+    // 好的书写习惯。当写成了if(5 = num)时，程序就会报错   等价于num == 5
+    // 常量和变量进行比较时，最好把常量放左边，变量放右边
+        printf("hehe\n");
+    return 0;
+}*/
+
+/*
+// 判断一个数是奇数还是偶数
+int main()
+{
+    int num = 0;
+    scanf("%d", &num);
+    // 判断
+    if(num % 2 == 1)
+        printf("odd number\n");
+    else
+        printf("even number\n");
+    return 0;
+}*/
+
+
+// 输出1-100之间的奇数
+/*int main()
+{
+    int num = 0;
+    while(num <= 100)
+    {
+        if(num % 2 == 1)
+            printf("%d\n", num);
+        num++;
+    }
+    return 0;
+}*/
+
+
+
+
+// switch语句
+// 通常用于多分枝情况   允许嵌套使用
+
+/*switch(整形表达式)  // 整型
+{
+    case(整型常量表达式)： // 书写好习惯：在最后一个case后边加上break
+     语句项；
+}*/
+
+/*int main()
+{
+    int day = 0;
+    scanf("%d", &day);
+
+    //if (1 == day)
+    //    printf("Monday\n");
+    //else if (2 == day)
+    //    printf("Tuesday\n");
+    //...
+
+    switch(day)
+    {
+        case 1:
+        case 2:
+        case 3:
+        case 4:
+        case 5:
+            printf("Weekday\n");
+            break;
+        case 6:
+        case 7:
+            printf("Weekend\n");
+            break;
+        default:
+            printf("choose the wrong num.\n");
+            break;
+    }
+    return 0;
+}*/
+
+
+
+int main()
+{
+    int n = 1;
+    int m = 2;
+    switch (n)
+    {
+        case 1: m++;
+        case 2: n++;
+        case 3:
+            switch (n)
+            {
+                case 1: n++;
+                case 2: m++; n++;
+                break;
+            }
+        case 4:
+            m++;
+            break;
+        default:
+            break;
+    }
+    printf("m = %d, n = %d\n", m ,n);
+    return 0;
+}
