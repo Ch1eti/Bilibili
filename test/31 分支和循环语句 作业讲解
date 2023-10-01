@@ -1,0 +1,176 @@
+// 分支和循环语句 作业讲解
+
+// 'a'; // 97
+
+
+#include <stdio.h>
+
+/*
+int main()
+{
+    int arr[] = {73, 32, 99, 97, 110, 32, 100, 111, 32, 105, 116, 33};
+    int i = 0;
+
+    int sz = sizeof(arr)/sizeof(arr[0]);
+    // sizeof(arr) 计算的是数组的总大小，单位是字节
+    // sizeof(arr[0]) 计算的是数组元素的大小
+
+    while (i < sz)
+    {
+        printf("%c", arr[i]);
+        i++;
+    }
+    // printf("%c\n", 'a');
+    // printf("%c\n", 97);
+
+    return 0;
+}
+*/
+
+
+/*
+int main()
+{
+    // 输入
+    int year = 0;
+    int month = 0;
+    int date = 0;
+    scanf("%4d%2d%2d", &year, &month, &date);
+    // 输出
+    printf("year=%4d\n", year);
+    printf("month=%02d\n", month); // %02d 2指的是打印2位；0指的是不够两位的部分由0补齐
+    printf("date=%02d\n", date);
+    return 0;
+}
+*/
+
+
+/*
+int main()
+{
+    int id = 0;
+    float c = 0.0f; // 没有f编译器会以为是double类型数据，加上f就是float类型数据
+    float math = 0.0f;
+    float english = 0.0f;
+    // 输入
+    scanf("%d;%f,%f,%f", &id, &c, &math, &english);
+    // 输出
+    printf("The each subject score of NO. %d is %.2f, %.2f, %.2f.\n", id, c, math, english);
+    return 0;
+}
+*/
+
+
+/*
+int main()
+{
+    int n = printf("Hello world!");
+    printf("\n%d\n", n); // 12 为printf("Hello world!")调用后的返回值
+    return 0;
+}
+*/
+
+
+/*
+int sum(int a)
+{
+    int c = 0;
+    static int b =3;
+    c += 1;
+    b += 2;
+    return (a + b + c);
+}
+
+int main()
+{
+    int i;
+    int a = 2;
+    for (i = 0; i < 5; i++)
+    {
+        printf("%d,", sum(a)); // 8,10,12,14,16
+    }
+}
+*/
+
+
+/*
+int main()
+{
+    printf("printf(\"Hello world!\\n\");\n"); // printf("Hello world!\n");
+    printf("cout<<\"Hello world!\"<<endl;"); // cout<<"Hello world!"<<endl;
+    return 0;
+}
+*/
+
+
+// 找4个数中的最大值
+/*int main()
+{
+    int arr[4] = {0};
+    // 0 1 2 3
+    int i = 0;
+    while (i < 4)
+    {
+        scanf("%d", &arr[i]);
+        i++;
+    }
+    // 找最大值
+    // 假设第一个元素就是最大值
+    int max = arr[0];
+    i = 1;
+    while (i < 4)
+    {
+        if (arr[i] > max)
+        {
+            max = arr[i];
+        }
+        i++;
+    }
+    printf("%d\n", max);
+    return 0;
+}*/
+
+/*int main()
+{
+    int i = 1;
+    int n = 0 ;
+    int max = 0;
+    // 假设第一个元素就是最大值
+    scanf("%d", &max);
+    while (i < 4)
+    {
+        scanf("%d", &n);
+        if (n > max)
+            max = n;
+        i++;
+    }
+    printf("%d\n", max);
+    return 0;
+}*/
+
+
+// 计算球体体积
+/*int main()
+{
+    double r = 0.0;
+    double V = 0.0;
+
+    scanf("%lf", &r);
+    V = 4/3.0 * 3.1415926 * r * r * r; // 3.0保证计算结果是小数
+    printf("%.3lf\n", V);
+    return 0;
+}*/
+
+
+// 计算BMI指数(身体质量指数)
+int main()
+{
+    int weight = 0;
+    int high = 0;
+    scanf("%d %d", &weight, &high);
+    // 计算
+    float BMI = weight/(high/100.0)/(high/100.0);
+    // 输出
+    printf("%.2f\n", BMI);
+    return 0;
+}
