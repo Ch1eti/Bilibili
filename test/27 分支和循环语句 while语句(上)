@@ -1,0 +1,29 @@
+// 分支和循环语句 while语句
+
+// 循环语句：while, for, do while
+
+
+// while循环
+// while(表达式)
+//    循环语句；
+
+
+#include <stdio.h>
+
+
+// while循环中
+// break 永久终止循环
+// continue 跳过本次循环后面的代码，直接去判断部分，进行下一次循环的判断
+int main()
+{
+    int i = 1;
+    while (i <= 10)
+    {
+        if (5 == i)
+            // break; // 1 2 3 4 结束整个循环
+            continue; // 1 2 3 4 结束这个循环
+        printf("%d\n", i);
+        i++;
+    }
+    return 0;
+}
