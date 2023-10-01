@@ -1,0 +1,65 @@
+// 分支和循环语句 while语句(下)
+
+
+#include <stdio.h>
+
+/*
+int main()
+{
+    // int ch = 0;
+    // while (getchar())
+
+    //int ch = getchar(); // 返回类型是int
+    //printf("%c\n", ch); // 1
+    //putchar(ch); // 2
+
+    // int ch = 0;
+    // while ((ch = getchar()) != EOF)
+    // {
+    //         putchar(ch);
+    // }
+
+
+    // 举例子
+    // 假如密码是一个字符串
+    char password[20] = { 0 };
+    printf("enter the password:");
+    scanf("%s", password); // 123456
+
+    // getchar(); // 读取了\n
+    int ch = 0;
+    while((ch = getchar()) != '\n')  // 通过while循环和getchar搭配起到清理“输入缓冲区”的作用
+    {
+        ;
+    }
+
+    printf("please check your password(Y/N):");
+    int ret = getchar();
+    if ('Y' == ret)
+    {
+        printf("Yes\n");
+    }
+    else
+    {
+        printf("No\n");
+    }
+    return 0;
+}
+*/
+
+
+/*
+int main()
+{
+    char ch = '\0';
+    while ((ch = getchar()) != EOF)
+    {
+        if (ch < '0' || ch > '9')
+            continue;
+        putchar(ch);
+    }
+    // 只打印数字字符
+
+    return 0;
+}
+*/
