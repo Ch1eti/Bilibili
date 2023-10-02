@@ -1,0 +1,68 @@
+// 分支和循环语句 do...while循环练习(中)
+
+// 1. 编写代码，演示多个字符从两端移动，向中间汇聚
+// 2. 编写代码，模拟用户登录情景，并且只能登陆三次。(只允许输入三次密码，如果密码正确则提示登陆成功，如果三次均输入错误，则退出程序)
+
+
+#include <stdio.h>
+#include <cstring>
+#include <windows.h>
+#include <string.h>
+
+// 编写代码，演示多个字符从两端移动，向中间汇聚
+// welcome to bit!!!!
+// w################!
+// we##############!!
+// ....
+// welcome to bit!!!!
+/*
+int main()
+{
+    char arr1[] = "welcome to bit!!!!";
+    char arr2[] = "##################";
+
+    int left = 0;
+    int right = strlen(arr2) - 1; // strlen是计算字符串长度，统计“\0”之前字符的个数  sizeof是计算操作数组长度
+    while (left <= right)
+    {
+        arr2[left] = arr1[left];
+        arr2[right] = arr1[right];
+        printf("%s\n", arr2);
+        Sleep(500); // 等待500ms后再打印
+        left++;
+        right--;
+    }
+    return 0;
+}*/
+
+
+
+// 编写代码，模拟用户登录情景，并且只能登陆三次。
+
+// 比较2个字符串是否相等，不能使用==，需要库函数:strcmp
+// 如果返回值是0，则表示2个字符串相等
+int main()
+{
+    int i = 0;
+    char password[20]= { 0 };
+    // 假设密码是字符串：abcdef
+    for (i = 0; i < 3; i ++)
+    {
+        printf("please enter password: ");
+        scanf("%s", password);
+        if (strcmp(password, "abcdef") == 0) // 比较2个字符串是否相等，不能使用==，需要库函数:strcmp
+        {
+            printf("success.\n");
+            break;
+        }
+        else
+        {
+            printf("wrong password.\n");
+        }
+    }
+    if (i == 3)
+    {
+        printf("quit");
+    }
+    return 0;
+}
