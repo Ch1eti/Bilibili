@@ -1,0 +1,110 @@
+// 分支和循环语句 练习(完)
+// goto语句
+
+// 1. 猜数字游戏
+// 2. 电脑关机程序
+
+
+
+// 猜数字游戏
+// 1. 电脑产生一个随机数(1~100)
+// 2. 猜数字  猜大了 猜小了
+
+#include <stdio.h>
+
+/*
+#include <stdlib.h>
+#include <time.h>
+
+void menu()
+{
+    printf("*********************\n");
+    printf("*****  1. play  *****\n");
+    printf("*****  0. exit  *****\n");
+    printf("*********************\n");
+}
+
+void game()
+{
+    int guess = 0;
+    // 1. 生成随机数  1~100
+    int ret = rand()%100 + 1;
+    // 2. 猜数字
+
+    while (1)
+    {
+        printf("Please guess a number:");
+        scanf("%d", &guess);
+        if (guess < ret)
+        {
+            printf("It is too low\n");
+        }
+        else if (guess > ret)
+        {
+            printf("It is too high\n");
+        }
+        else
+        {
+            printf("Congratulations! You have got the right answer\n");
+            break;
+        }
+    }
+}
+
+// 指针
+// int *p = NULL;
+// int a = 0;
+
+int main()
+{
+    int input = 0;
+    srand((unsigned int)time(NULL)); // 保证每两次游戏的随机数不一样
+
+    do
+    {
+        menu();
+        printf("Please enter a number:");
+        scanf("%d", &input);
+        switch (input)
+        {
+            case 1:
+                game(); // 猜数字的整个逻辑
+                break;
+            case 0:
+                printf("Exit\n");
+                break;
+            default:
+                printf("Wrong answer. Please guess again.\n");
+                break;
+        }
+    }
+    while (input );
+    return 0;
+}*/
+
+
+
+// 关机程序
+// 1. 电脑运行起来后1分钟内关机
+// 2. 如果输入：我是猪，就取消关机
+
+//#include <string.h>
+//#include <cstdlib>
+//
+//int main()
+//{
+//    char input[20] = { 0 };
+//    system("shutdown -s -t 60");
+//again:
+//    printf("Your computer will shut down in 60 seconds. If you type: I_am_a_pig, it will be cancelled\n");
+//    scanf("%s", input);
+//    if (strcmp(input, "I_am_a_pig") == 0)
+//    {
+//        system("shutdown -a");
+//    }
+//    else
+//    {
+//        goto again;
+//    }
+//    return 0;
+//}
