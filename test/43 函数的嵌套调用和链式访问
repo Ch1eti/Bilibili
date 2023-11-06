@@ -1,0 +1,40 @@
+//函数的嵌套调用和链式访问
+
+//函数可以嵌套调用，但是不能嵌套定义
+
+
+//链式访问 把一个函数的返回值作为另一个函数的参数
+//链式访问的前提是函数有返回值
+#include <stdio.h>
+#include <cstring>
+
+//int main()
+//{
+//    int len = strlen("abcdef");
+//    printf("%d\n", len);
+//
+//    //链式访问
+//    printf("%d\n", strlen("abcde"));
+//
+//    printf("%d", printf("%d", printf("%d", 43)));//4321
+//    //printf的返回值是printf实际控制输出的字符数
+//
+//    return 0;
+//}
+
+
+void test(void)
+{
+    printf("hehe\n");
+}
+
+
+//本质上main()函数是有3个参数的
+//int argc, char* argv[], char *envp[]
+int main(void)//void是为了明确说明main()函数不需要参数
+{
+    test();
+    return 0;
+}
+
+
