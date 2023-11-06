@@ -1,0 +1,97 @@
+//函数递归 recursion
+
+
+//递归 一个过程或函数在其定义或说明中有直接或间接调用自身的一种方法  把大事化小
+//递归 = 递 + 归   先递后归
+
+//递归的必要条件
+//1.存在限制条件，当满足这个限制条件的时候，递归便不再继续。
+//2.每次递归调用之后越来越接近这个限制条件
+
+
+
+//练习1：接受一个整型值（无符号），按照顺序打印它的每一位。
+//例如：输入：1234，输出 1 2 3 4.
+
+//%d 是打印有符号的整数（会有负数）
+//%u 是打印无符号整数
+
+//#include <stdio.h>
+//
+//void print(unsigned int n)
+//{
+//    if (n > 9)//每一次函数调用都会在栈区申请空间。没有这个条件会显示 栈溢出
+//    {
+//        print(n / 10);//123 重新调用print函数
+//    }
+//    printf("%d ", n % 10);//4 等待重新调用的print函数完成后，再打印
+//}
+//
+//print(1234)
+//print(123) 4
+//print(12) 3 4
+//print(1) 2 3 4
+//1 2 3 4
+//
+//int main()
+//{
+//    unsigned int num = 0;
+//    scanf("%u", &num);
+//
+//    print(num);//接受一个整型值(无符号)，按照顺序打印它的每一位
+//
+//    //while (num)
+//    //{
+//    //    printf("%d ", num % 10);//4 3 2 1
+//    //    num = num / 10;
+//    //}
+//
+//    return 0;
+//}
+
+
+//练习2：编写函数不允许创建临时变量，求字符串的长度。
+
+#include <stdio.h>
+#include <cstring>
+
+//求字符串的长度
+//模拟实现strlen
+
+//int my_strlen(char str[])//参数部分写出数组的形式
+//int my_strlen(char* str)//参数部分写出指针的形式  二者本质一样
+//{
+//    int count = 0;//计数，临时变量
+//    while (*str != '\0')
+//    {
+//        count++;
+//        str++;//找下一个字符
+//    }
+//    return count;
+//}
+
+//递归求解   没有创建临时变量
+//my_strlen("abc“)；
+//1+my_strlen("bc”)；
+//1+1+my_strlen("c“)；
+//1+1+1+my_strlen("");
+//1+1+1+0；
+
+int my_strlen(char* str)
+{
+    if (*str != '\0')
+        return 1 + my_strlen(str + 1);
+    else
+        return 0;
+}
+
+int main()
+{
+    char arr[] = "abc";//[a b c \n]
+    //char*
+    int len = my_strlen(arr);
+
+    printf("%d\n", len);
+
+    return 0;
+}
