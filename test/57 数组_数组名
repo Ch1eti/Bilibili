@@ -1,0 +1,58 @@
+//数组_数组名
+
+//数组名确实能表示首元素的地址
+//但是有2个例外：
+//1.sizeof(数组名)     这里的数组名表示整个数组，计算的是整个数组的大小，单位是字节
+//2.&数组名      这里的数组名也是表示整个数组，取出的是整个数组的地址
+
+
+//一维数组的数组名
+/*
+#include <stdio.h>
+
+int main()
+{
+    int arr[10];
+    printf("%p\n", arr);// arr就是首元素的地址
+    printf("%p\n", arr+1);// 首元素地址+1
+
+    printf("%p\n", &arr[0]);// 首元素的地址
+    printf("%p\n", &arr[0]+1);// 首元素地址+1
+
+    printf("%p\n", &arr);// 数组的地址
+    printf("%p\n", &arr+1);// 整个数组的每个元素地址都会+1  结果会+40
+
+    //int n = sizeof(arr);
+    //printf("%d\n", n);// 40
+
+    return 0;
+}
+*/
+
+
+//二维数组的数组名
+
+#include <stdio.h>
+
+int main()
+{
+    int arr[3][4];
+    //int sz = sizeof(arr);
+    //printf("%d\n", sz);
+
+    //sizeof(arr) 计算总数组大小
+    //sizeof(arr[0]) 计算第一行的大小
+    //sizeof(arr[0][0]) 计算第一行第一个元素的大小
+
+    printf("%d\n", sizeof(arr) / sizeof(arr[0]));// 计算行数
+    printf("%d\n", sizeof(arr[0]) / sizeof(arr[0][0]));//计算列数
+
+
+//    printf("%p\n", arr);// 二维数组的数组名也表示数组首元素的地址   表示的是二维数组的第一行的地址
+//    printf("%p\n", arr+1);// 第一行每个元素地址都+1  结果会+16
+//
+//    printf("%p\n", &arr);
+//    printf("%p\n", &arr+1);
+
+    return 0;
+}
