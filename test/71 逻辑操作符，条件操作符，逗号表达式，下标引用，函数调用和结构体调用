@@ -1,0 +1,211 @@
+//逻辑操作符，条件操作符，逗号表达式，下标引用，函数调用和结构体调用
+
+//1.逻辑操作符
+//2.条件操作符(三目操作符)
+//3.逗号表达式
+//4.下标引用、函数调用和结构成员
+
+
+///1.逻辑操作符
+// && 逻辑与   左边为假，右边不计算
+// || 逻辑或   左边为真，右边不计算
+/*
+#include <stdio.h>
+
+//闰年
+//1.能被4整除，并且不能被100整除
+//2.能被400整除
+
+int is_leap_year(int y)
+{
+    if ((y % 4 ==0 && y % 100 != 0 )|| y % 400 == 0)
+        return 1;
+    else
+        return 0;
+}
+
+int main()
+{
+//    int a = 0;
+//    int b = 0;
+//    int c = a && b;
+//    int d = a || b;
+//
+//    printf("%d\n", c);
+//    printf("%d\n", d);
+
+
+    int i = 0;
+    int a = 0;
+    int e = 1;
+
+    int b = 2;
+    int c = 3;
+    int d = 4;
+//    i = a++ && ++b && d++;  // a = 1, b = 2, c = 3, d = 4
+//    i = e++ && ++b && d++;  // e = 2, b = 3, c = 3, d = 5
+//    i = a++ || ++b || d++;  // a = 1, b = 3, c = 3, d = 4
+//    i = e++ || ++b || d++;  // e = 2, b = 2, c = 3, d = 4
+    printf("a = %d\nb = %d\nc = %d\nd = %d\n", a, b, c, d);
+    printf("\n");
+    printf("e = %d\nb = %d\nc = %d\nd = %d\n", e, b, c, d);
+    return 0;
+}
+*/
+
+///2.条件操作符(三目操作符)
+// exp1 ? exp2 : exp3
+// 1 真    2 真   3 假
+// 1 假    2 假   3 真
+
+/*
+#include <stdio.h>
+
+int main()
+{
+    int a = 3;
+    int b = 0;
+
+//    if (a > 5)
+//        b = 3;
+//    else
+//        b = -3;
+//<=> (a > 5) ? (b = 3) : (b = -3); <=> b = (a > 5 ? 3 : -3);
+
+    int max = (a > b ? a : b);
+
+    printf("b = %d\n", b);
+    printf("max = %d\n", max);
+    return 0;
+}
+*/
+
+///3.逗号表达式
+// exp1, exp2, exp3,...expN
+// 逗号表达式，从左向右计算，整个表达式的结果是最后一个表达式的结果
+/*
+#include <stdio.h>
+
+int main()
+{
+//代码1
+//    int a = 1;
+//    int b = 2;
+//    int c = (a > b, a = b + 10, a, b = a + 1);  // 13
+
+//代码2
+//    if (a = b + 1, c = a / 2, d > 0) //从左向右计算，最后if的真假由最右边的表达式判断
+
+//代码3
+//    a = get_val();
+//    count_val(a);
+//    while (a > 0)
+//    {
+//        //业务处理
+//        a = get_val();
+//        count_val(a);
+//    }
+//
+//    //使用逗号表达式的话
+//    while (a = get_val(), count_val(), a >0)
+//    {
+//        //业务处理
+//    }
+
+    printf("c = %d\n", c);
+
+    return 0;
+}
+*/
+
+///4，下标引用、函数调用和结构成员
+
+#include <stdio.h>
+
+//1.下标引用操作符 []
+/*
+int main()
+{
+    int arr[10] = { 0 };
+    //
+    //arr[7] --> *(arr + 7) --> *（7 + arr) --> 7[arr]
+    //
+    // arr是数组首元素的地址
+    // arr+7就是跳过7个元素，指向第8个元素
+    // *(arr + 7)就是第8个元素
+    //
+    arr[7] = 8; //[]是操作符  操作数是arr和7
+    7[arr] = 9; //结果是arr[7]被改成了9
+
+    printf("%d\n", arr[7]);
+
+    return 0;
+}
+*/
+
+//2.函数调用 ()
+/*
+//函数定义
+int Add(int x, int y)
+{
+    return (x + y);
+}
+
+int main()
+{
+    int a = 10;
+    int b = 20;
+    //函数调用
+    int c = Add(a, b); //() 就是函数调用操作符，操作数:Add, a, b
+    //函数在调用时，最少有一个操作数，就是函数名
+
+    printf("a + b = %d\n", c);
+
+    return 0;
+}
+*/
+
+//3.访问一个结构的成员
+
+// .   结构体对象.成员名
+// ->  结构体指针->成员名
+
+#include <string.h>
+
+struct Stu
+{
+    char name[20];
+    int age;
+    double score;
+
+};
+
+void set_stu(struct Stu* ps)
+{
+    //ps->age <=> (*ps).age
+
+    //字符串不能直接用(*ps).name = "Zhangsan"
+    //要用strcpy函数，字符串拷贝
+    //将字符串"Zhangsan"拷贝放入name的空间中去
+
+//    strcpy((*ps).name, "Zhangsan");
+//    (*ps).age = 20;
+//    (*ps).score = 100.0;
+    strcpy(ps -> name, "Zhangsan");
+    ps -> age = 20;
+    ps -> score = 100.0;
+}
+
+void print_stu(struct Stu* ps)
+{
+    printf("%s %d %lf\n", ps -> name, ps -> age, ps -> score);
+}
+
+int main()
+{
+    struct Stu s = { 0 };
+    set_stu(&s);
+    print_stu(&s);
+
+    return 0;
+}
