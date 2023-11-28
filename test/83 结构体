@@ -1,0 +1,59 @@
+//结构体
+#include <stdio.h>
+
+//结构体类型的声明
+//结构体初始化
+//结构体成员访问
+//结构体传参
+
+
+//结构是一些值的集合，这些值被称为成员变量。每个成员可以是不同类型的变量
+
+//struct tag
+//{
+//      member-list;
+//}variable-list;
+
+
+//人
+//声明的结构体类型struct Peo
+struct Peo
+{
+    char name[20];
+    char tele[12];
+    char sex[6];// 女 男 保密
+    int high;
+}p3,p4;
+
+struct Peo p5,p6;
+
+struct St
+{
+    struct Peo p;
+    int num;
+    float f;
+};
+
+void print1(struct Peo p)
+{
+    printf("%s %s %s %d\n", p.name, p.tele, p.sex, p.high);//结构体变量.成员变量
+}
+
+void print2(struct Peo* sp)
+{
+    printf("%s %s %s %d\n", sp->name, sp->tele, sp->sex, sp->high);//结构体指针->成员变量
+}
+
+int main()
+{
+    struct Peo p1 = {"Zhangsan", "15151515151", "Man", 181};//结构体变量的创建  p1是结构体变量
+    struct St s = {{"Lisi", "14141414141", "Woman", 166}, 100, 3.14f};
+
+    printf("%s %s %s %d\n", p1.name, p1.tele, p1.sex, p1.high);
+    printf("%s %s %s %d %d %f\n", s.p.name, s.p.tele, s.p.sex, s.p.high, s.num, s.f);
+
+    print1(p1);
+    print2(&p1);//首选print2函数
+
+    return 0;
+}
