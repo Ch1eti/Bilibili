@@ -1,0 +1,53 @@
+//指针_指针和数组
+#include <stdio.h>
+
+//数组：一组相同类型元素的集合
+//指针变量：是一个变量，存放的是地址
+
+
+/*int main()
+{
+    int arr[10] = {0,1,2,3,4,5,6,7,8,9};
+    //数组名arr是数组首元素的地址
+    //&arr[0]
+    int* p = arr;
+    //通过指针来访问数组
+    int sz = sizeof(arr) / sizeof(arr[0]);
+    int i = 0;
+    for (i = 0; i < sz; i++)
+    {
+        printf("%p ----- %p\n", &arr[i], p + i);
+        //printf("%d ", arr[i]);
+        //<=> printf("%d ", *(p + i));
+        //<=> printf("%d ", *(arr + i));
+    }
+
+
+    return 0;
+}*/
+
+void test(int* p, int sz)
+{
+    int i = 0;
+    for (i = 0; i < sz; i++)
+    {
+        printf("%d ", *(p + i));
+    }
+}
+
+//void test(int arr[], int sz)
+//{
+//    int i = 0;
+//    for (i = 0; i < sz; i++)
+//    {
+//        printf("%d ", arr[i]);// arr[i] --> *(arr+i)
+//    }
+//}
+
+int main()
+{
+    int arr[10] = {0};
+    test(arr, 10);
+
+    return 0;
+}
