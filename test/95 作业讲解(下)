@@ -1,0 +1,66 @@
+//作业讲解(下)
+#include <stdio.h>
+
+//1.打印菱形
+//2.喝汽水问题
+
+
+///1.打印菱形
+/*
+int main()
+{
+    int line = 0;
+    scanf("%d", &line);
+
+    //上半部分
+    int i = 0;
+    for (i = 0; i < line; i++)
+    {
+        //打印一行
+        //空格
+        int j = 0;
+        for (j = 0; j < line - 1 - i; j++)
+            printf(" ");
+        //*
+        for (j = 0; j < 2 * i + 1; j++)
+            printf("*");
+        printf("\n");
+    }
+
+    //下半部分
+    for (i = 0; i < line - 1; i++)
+    {
+        //打印一行
+        //空格
+        int j = 0;
+        for (j = 0; j <= i ; j++)
+            printf(" ");
+        //*
+        for (j = 0; j < 2 * (line - 1 - i) - 1; j++)
+            printf("*");
+        printf("\n");
+    }
+
+    return 0;
+}*/
+
+///2.喝汽水问题
+//喝汽水，一瓶汽水1元，2个空瓶换一瓶汽水，请问能喝多少瓶汽水
+
+int main()
+{
+    int money = 0;
+    scanf("%d", &money);
+    int total = money;;
+    int empty = money;
+
+    //置换
+    while (empty >= 2)
+    {
+        total += empty / 2;
+        empty = empty / 2 + empty % 2;
+    }
+    printf("%d\n", total); // total = money*2 - 1
+
+    return 0;
+}
