@@ -1,0 +1,135 @@
+//调试
+#include <stdio.h>
+
+//1.程序死循环
+//2.assert
+//3.const
+//4.模拟实现strlen求字符串长度
+
+
+//调试：时发现和减少计算机程序或电子仪器设备中程序错误的一个过程
+//Debug 通常称为调试版本，它包含调试信息，并且不作任何优化，便于程序员调试程序。
+//Release 称为发布版本，它往往是进行了各种优化，使得程序在代码大小和运行速度上都是最优的，以便用户很好地使用。
+
+///1.程序死循环
+//栈区内存的使用习惯是 先使用高地址处的空间，在使用低地址处的空间
+//数组随着下标的增长 地址是由低到高变化的
+//如果i和arr之间有适当的空间，利用数组的越界操作就可能会覆盖到i，就可能会导致死循环出现
+
+/*int main()
+{
+    int i = 0;
+    int arr[10] = {1,2,3,4,5,6,7,8,9,10};
+    for (i = 0; i <= 12; i++)
+    {
+        arr[i] = 0;
+        printf("hehe\n");
+    }
+    return 0;
+}*/
+
+///2.assert
+/*
+//1.方法1
+//void my_strcpy(char* dest, char* src)
+//{
+//    while (*src != '\0')
+//    {
+//        *dest = *src;
+//        dest++;
+//        src++;
+//    }
+//    *dest = *src;
+//}
+
+//2.方法2
+//void my_strcpy(char* dest, char* src)
+//{
+//    while (*dest++ = *src++)
+//    {
+//        ;
+//    }
+//}
+
+#include <assert.h>
+
+//3.方法3
+char* my_strcpy(char* dest, const char* src) //cosnt 保证出现*src++ = *dest++时候在运行前报错
+{
+    char* ret = dest;
+    //断言   不满足条件就会在运行前报错
+    assert(src != NULL);
+    assert(dest != NULL);
+
+    while (*dest++ = *src++)
+    {
+        ;
+    }
+    return ret;
+}
+
+int main()
+{
+    char arr1[20] = "XXXXXXXXXXXX";
+    char arr2[] = "hello bit";
+    //strcpy在拷贝字符串的时候，会把源子字符串中的\0也拷贝过去
+
+    printf("%s\n", my_strcpy(arr1, arr2));
+
+    return 0;
+}*/
+
+///3.const
+/*
+int main()
+{
+    //int num = 10;
+    //num = 20;
+
+    const int num = 10;
+    //const 修饰指针变量时候
+    //1.const 放在*左边
+    //p指向的对象不能通过p来改变，但是p变量本身的值是可以改变的
+    const int* p = &num; //int const* p = &num;
+    //*p = 0   ok
+    //p = &n   xx
+
+    //2.const 放在*右边
+    //p指向的对象是可以通过p来改变的，但是不能修改p变量本身的值
+    int* const p = &num;
+    //*p = 0   xx
+    //p = &n   ok
+
+    const int* const p = &num;
+
+    printf("%d\n", num);
+
+    return 0;
+}*/
+
+///4.模拟strlen求字符串长度
+
+#include <assert.h>
+
+int my_strlen(const char* str)//const 保证函数不会改变arr数组的内容
+{
+    int count = 0;
+    assert(str);//防止str是空指针
+
+    while (*str != '\0')
+    {
+        count++;
+        str++;
+    }
+    return count;
+}
+
+int main()
+{
+    char arr[] = "hello bit";
+    int len = my_strlen(arr);
+
+    printf("%d\n", len);
+
+    return 0;
+}
