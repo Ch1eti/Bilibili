@@ -1,0 +1,89 @@
+//初阶测评
+#include <stdio.h>
+
+//1.求最小公倍数
+//2.倒置字符串
+
+
+///1.求最小公倍数
+/*
+int main()
+{
+    int a = 0;
+    int b = 0;
+    scanf("%d %d", &a, &b);
+
+    //方法一：
+    //计算a和b的最小公倍数
+    int tmp = (a > b) ? a : b;
+    while ((tmp % a != 0) || (tmp % b != 0))
+    {
+        tmp++;
+    }
+    //打印
+    printf("%d\n", tmp);
+
+    //方法二：
+    //计算a和b的最小公倍数
+    int i = 1;
+    while ((a * i) % b != 0)
+    {
+        i++;
+    }
+    //打印
+    printf("%d\n", a * i);
+
+    return 0;
+}
+*/
+
+///2.倒置字符串
+//讲一句话的单词进行倒置，标点不倒置；如输入：I like bejing.，输出：beijing. like I
+
+#include <assert.h>
+#include <string.h>
+
+void reverse(char* left, char* right)
+{
+    assert(left);
+    assert(right);
+
+    while (left < right)
+    {
+        char tmp = *left;
+        *left = *right;
+        *right = tmp;
+        left++;
+        right--;
+    }
+}
+
+int main()
+{
+    //输入
+    char arr[101] = {0};
+    gets(arr);
+
+    //逆置
+    int len = strlen(arr);
+    //1.整个字符串逆序
+    reverse(arr, arr + len - 1);
+
+    //2.把每个单词逆序
+    char* start = arr;
+    while (*start)
+    {
+        char* end = start;
+        while (*end != ' ' && *end != '\0')
+            end++;
+        reverse(start, end - 1);
+        if (*end != '\0')
+            end++;
+        start = end;
+    }
+
+    //输出
+    printf("%s\n", arr);
+
+    return 0;
+}
